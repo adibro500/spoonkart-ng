@@ -1,0 +1,23 @@
+
+<div id="mySidenav" class="sidenav">
+    <hr/>
+        <h3 style=" padding: 8px 8px 8px 32px;">Sam's admin</h3><a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+       <hr/>
+        <a [routerLink]='["../dashboard/dashmain"]'>Home</a>
+       
+        <a [routerLink]='["../dashboard/addFood"]'>Order Food</a>
+                
+              
+        <a href="#">Reports</a>
+        <a [routerLink]='["/"]'>Sign Out</a>
+        <!-- <a (click)="refreshWin()">Refresh</a> -->
+      </div>
+      
+      <!-- Use any element to open the sidenav -->
+     
+      
+      <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+      <div id="main">
+  
+                <router-outlet></router-outlet> 
+      </div>

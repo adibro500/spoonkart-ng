@@ -1,0 +1,117 @@
+<!-- <form>
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Customer Information</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+
+        </div>
+       
+
+        <div class="row_wrapper row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <input id="fname" name="fname" class="form-control" placeholder="First Name" type="text" [(ngModel)]="fname" />
+
+            </div>
+            <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                <input id="lname" name="lname" class="form-control" placeholder="Last Name" type="text" [(ngModel)]="lname" />
+            </div>
+
+            <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                <input id="mob1" name="mob1" class="form-control" placeholder="Mobile number 1" type="text" [(ngModel)]="mob1" (keyup)='keyUP2();keyUp.next($event)' minlength="10" maxlength="10"/>
+            </div>
+            <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                <input id="mob2" name="mob2" class="form-control" placeholder="Mobile number 2" type="text" [(ngModel)]="mob2" minlength="10" maxlength="10"/>
+            </div>
+            <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                <input id="mob3" name="mob3" class="form-control" placeholder="Mobile number 3" type="text" [(ngModel)]="mob3" minlength="10" maxlength="10"/>
+            </div>
+            <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                <input id="mail" name="mail" class="form-control" placeholder="Email" type="email" [(ngModel)]="mail" />
+            </div>
+            <div class="ip col-md-12 col-sm-12 col-xs-12">
+
+                <input type="radio" name="radio-group" id="hchk" value="addr_house" [(ngModel)]="addr_type" />
+                <label for="hchk">House Address</label>
+                <input type="radio" name="radio-group" id="fchk" value="addr_flat" [(ngModel)]="addr_type" />
+                <label for="fchk">Flat Address</label>
+            </div>
+
+            <hr/>
+            <div *ngIf="addr_type=='addr_house'">
+                <div class="row_wrapper row">
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                        <input id="mob2" name="m2" class="form-control" placeholder="House number" type="text" [(ngModel)]="hnum" />
+                    </div>
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                        <input id="mob3" name="m3" class="form-control" placeholder="Street number" type="text" [(ngModel)]="snum" />
+                    </div>
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                        <input id="mail" name="ml" class="form-control" placeholder="Location" type="email" [(ngModel)]="loc" />
+                    </div>
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                        <input id="mail" name="ml2" class="form-control" placeholder="City" type="email" [(ngModel)]="city" />
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="addr_type=='addr_flat'">
+                <div class="row_wrapper row">
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                        <input id="mob2" name="mb2" class="form-control" placeholder="Flat number" type="text" [(ngModel)]="fnum" />
+                    </div>
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                        <input id="mob3" name="mb3" class="form-control" placeholder="Building" type="text" [(ngModel)]="building" />
+                    </div>
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+
+                        <input id="street" name="st2" class="form-control" placeholder="Street" type="text" [(ngModel)]="snum2" />
+                    </div>
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                        <input id="loc" name="loc2" class="form-control" placeholder="Location" type="text" [(ngModel)]="loc2" />
+                    </div>
+                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                        <input id="city2" name="ct2" class="form-control" placeholder="City" type="text" [(ngModel)]="city2" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn" (click)="openModal(template);bsModalRef.hide()">Save</button>
+    </div>
+</div>
+</form>
+
+<ng-template #template>
+    <div class="modal-header">
+        Please Confirm
+    </div>
+    <div class="modal-body">
+        <div *ngIf="valid_mob == false && confirm_order == true">
+                
+<h3>Please enter a valid mobile number</h3>
+</div>    
+<div *ngIf="confirm_order == false && valid_mob == true">
+        
+<button (click)="saveCustomer()">Please confirm the order</button>
+</div>    
+    </div>
+</ng-template> -->

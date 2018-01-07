@@ -1,0 +1,367 @@
+    <a><span (click)="openNav()"> <i class="glyphicon glyphicon-menu-hamburger"></i> </span></a>
+    <div class="container demo">
+        
+            
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        
+              <ng-container *ngFor="let tb of data;let idx=index">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne-{{idx}}">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-{{idx}}" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="more-less glyphicon glyphicon-plus"></i>
+                               {{tb.menu}}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne-{{idx}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                          
+                            <h4 class="col-sm-6 text-left">
+                                Food Item
+                            </h4>
+                                  
+                                
+    
+                              
+                                    
+                                          <h4 class="col-sm-2 text-left">
+                                              Quarter
+                                          </h4>
+                                                <h4 class="col-sm-2 text-left">
+                                                    Half
+                                                </h4>
+                                                      <h4 class="col-sm-2 text-left">
+                                                         Full
+                                                      </h4>     
+                                                      <hr/>
+                                    
+                        <ng-container *ngFor="let item of tb.items;let idx2=index">
+
+                          <div class="row" (click)="openModal(template,item)">
+                           
+                        
+                              <div class="col-sm-6 text-left">
+                            {{item.title}}
+                              </div>
+                              
+                            
+
+                          
+                                
+                                      <div class="col-sm-2 text-left">
+                                          {{item.quarter}}
+                                            </div>
+                                            <div class="col-sm-2 text-left">
+                                                {{item.half}}
+                                                  </div>
+                                                  <div class="col-sm-2 text-left">
+                                                      {{item.full}}
+                                                        </div>     
+                                
+                                                      </div>
+                          
+
+                        </ng-container>
+                        </div>
+                    </div>
+                </div>
+              </ng-container>
+        
+        
+            </div><!-- panel-group -->
+            
+            <div class="row">
+                <div class="col-sm-6">
+              Item
+                </div>
+                <div class="col-sm-2">
+                 Unit Cost
+                </div>
+                <div class="col-sm-2">
+                    Qty
+                  </div>
+                  <div class="col-sm-2">
+                      Item Cost
+                    </div>
+            </div>
+            <ng-container *ngFor="let item of billingItems">
+              <ng-container *ngIf="item !== undefined && item !== null">
+            <div class="row">
+                <div class="col-sm-6">
+              {{item.Item}}
+                </div>
+                <div class="col-sm-2">
+                 {{item.Unit_Cost}}
+                </div>
+                <div class="col-sm-2">
+                    {{item.Qty}}
+                  </div>
+                  <div class="col-sm-2">
+                     {{item.Cost}}
+                    </div>
+            </div>
+              </ng-container>
+            </ng-container>
+            <div class="col-sm-12 text-right">
+              Total Cost:{{totalAmt}}
+            </div>
+            
+            <button (click)="openModal2(template2,billingItems)">Submit Order</button>
+        </div><!-- container -->
+
+
+        
+
+        <ng-template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Modal</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                  Item
+                    </div>
+                    <div class="col-sm-2">
+                      Quarter
+                    </div>
+                    <div class="col-sm-2">
+                        Half
+                      </div>
+                      <div class="col-sm-2">
+                          Full
+                        </div>
+                </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+             {{shownData.title}}
+                </div>
+                <div class="col-sm-2">
+                  <ng-container *ngIf="shownData.quarter!==undefined && shownData.quarter!==''">
+                   <input type="radio" name="radio-group;qty=0" (change)="billedAmt=0" [(ngModel)]="radioData" [value]="shownData.quarter"> <label>{{shownData.quarter}}</label>
+                  </ng-container>
+                </div>
+                <div class="col-sm-2">
+                    <ng-container *ngIf="shownData.half!==undefined && shownData.half!==''">
+                        <input type="radio" name="radio-group" (change)="billedAmt=0;qty=0" [(ngModel)]="radioData" [value]="shownData.half"> <label>{{shownData.half}}</label>
+                       </ng-container>
+                  </div>
+                  <div class="col-sm-2">
+                      <ng-container *ngIf="shownData.full!==undefined && shownData.full!==''">
+                          <input type="radio" name="radio-group" (change)="billedAmt=0;qty=0" [(ngModel)]="radioData" [value]="shownData.full"> <label>{{shownData.full}}</label>
+                         </ng-container>
+                    </div>
+                   
+              
+            </div>
+            <div class="row">
+              <div class="col-sm-5">
+              Quantity: 
+              </div>
+              <div class="col-sm-2">
+                  <button class="btn" (click)="inc()">+</button>
+                  </div>
+                  <span>Quantity: {{qty}}</span>
+                  <div class="col-sm-2">
+                      <button class="btn" (click)="dec()">-</button> 
+                      </div>
+                      <div class="col-sm-3">
+                         Item Cost: <input class="form-control" type="text" [(ngModel)]="billedAmt" [value]="finalAmt">
+                          </div>
+            </div>
+          
+            </div>
+            <div class="modal-footer">
+              <div class="col-sm-12">
+                <button (click)="pushToArray(shownData.title,radioData,billedAmt);modalRef.hide()">Add Item</button>
+              </div>
+              <!-- <div *ngIf="billingItems.length !== 0">
+                <ul>
+                  <li *ngFor="let d of billingItems">{{d.Item}},{{d.Unit_Cost}},{{d.Qty}},{{d.Cost}}</li>
+                </ul>
+              </div> -->
+
+          </div>
+          </ng-template>
+
+
+          <ng-template #template2>
+              <div class="modal-header">
+                <h4 class="modal-title pull-left">Modal</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                  <div class="row">
+                      <div class="col-sm-6">
+                    Item
+                      </div>
+                      <div class="col-sm-2">
+                       Unit Cost
+                      </div>
+                      <div class="col-sm-2">
+                          Qty
+                        </div>
+                        <div class="col-sm-2">
+                            Item Cost
+                          </div>
+                  </div>
+                  <ng-container *ngFor="let item of billingItems">
+                  <div class="row">
+                      <div class="col-sm-6">
+                    {{item.Item}}
+                      </div>
+                      <div class="col-sm-2">
+                       {{item.Unit_Cost}}
+                      </div>
+                      <div class="col-sm-2">
+                          {{item.Qty}}
+                        </div>
+                        <div class="col-sm-2">
+                           {{item.Cost}}
+                          </div>
+                  </div>
+                  </ng-container>
+                  
+              </div>
+               
+              
+              <div class="modal-footer">
+                <div class="col-sm-12">
+                    Total Cost:{{totalAmt}}
+                  <button (click)="modalRef2.hide();openModal4(template3)">Confirm Order</button>
+                </div>
+                <!-- <div *ngIf="billingItems.length !== 0">
+                  <ul>
+                    <li *ngFor="let d of billingItems">{{d.Item}},{{d.Unit_Cost}},{{d.Qty}},{{d.Cost}}</li>
+                  </ul>
+                </div> -->
+  
+            </div>
+            </ng-template>
+
+<ng-template #template3>
+            <form ngNativeValidate>
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left">Customer Information</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef4.hide()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        
+                       <br/>
+                       <br/>
+                
+                        <div class="row_wrapper row">
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                <input id="fname" name="fname" class="form-control" placeholder="First Name" type="text" [(ngModel)]="fname" />
+                
+                            </div>
+                            <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                <input id="lname" name="lname" class="form-control" placeholder="Last Name" type="text" [(ngModel)]="lname" />
+                            </div>
+                
+                            <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                <input id="mob1" name="mob1" class="form-control" placeholder="Mobile number 1" type="text" [(ngModel)]="mob1" (keyup)='keyUp.next($event)' minlength="10" maxlength="10"/>
+                            </div>
+                            <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                <input id="mob2" name="mob2" class="form-control" placeholder="Mobile number 2" type="text" [(ngModel)]="mob2" minlength="10" maxlength="10"/>
+                            </div>
+                            <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                <input id="mob3" name="mob3" class="form-control" placeholder="Mobile number 3" type="text" [(ngModel)]="mob3" minlength="10" maxlength="10"/>
+                            </div>
+                            <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                <input id="mail" name="mail" class="form-control" placeholder="Email" type="email" [(ngModel)]="mail" />
+                            </div>
+                            <div class="ip col-md-12 col-sm-12 col-xs-12">
+                
+                                <input type="radio" name="radio-group" id="hchk" value="addr_house" [(ngModel)]="addr_type" />
+                                <label for="hchk">House Address</label>
+                                <input type="radio" name="radio-group" id="fchk" value="addr_flat" [(ngModel)]="addr_type" />
+                                <label for="fchk">Flat Address</label>
+                            </div>
+                
+                            <hr/>
+                            <div *ngIf="addr_type=='addr_house'">
+                                <div class="row_wrapper row">
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                        <input id="mob2" name="m2" class="form-control" placeholder="House number" type="text" [(ngModel)]="hnum" />
+                                    </div>
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                        <input id="mob3" name="m3" class="form-control" placeholder="Street number" type="text" [(ngModel)]="snum" />
+                                    </div>
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                        <input id="mail" name="ml" class="form-control" placeholder="Location" type="email" [(ngModel)]="loc" />
+                                    </div>
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                                        <input id="mail" name="ml2" class="form-control" placeholder="City" type="email" [(ngModel)]="city" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="addr_type=='addr_flat'">
+                                <div class="row_wrapper row">
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                        <input id="mob2" name="mb2" class="form-control" placeholder="Flat number" type="text" [(ngModel)]="fnum" />
+                                    </div>
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                        <input id="mob3" name="mb3" class="form-control" placeholder="Building" type="text" [(ngModel)]="building" />
+                                    </div>
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                
+                                        <input id="street" name="st2" class="form-control" placeholder="Street" type="text" [(ngModel)]="snum2" />
+                                    </div>
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                                        <input id="loc" name="loc2" class="form-control" placeholder="Location" type="text" [(ngModel)]="loc2" />
+                                    </div>
+                                    <div class="ip col-md-6 col-sm-6 col-xs-6">
+                                        <input id="city2" name="ct2" class="form-control" placeholder="City" type="text" [(ngModel)]="city2" />
+                
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row col-md-12 col-sm-12 col-xs-12 text-center row_wrapper">
+                            <div class="col-md-10 col-sm-10 col-xs-10">
+                                    <!-- <ng-selectize [options]="currentOptions" [(ngModel)]="value" [config]="currentOptionsConfig" [ngModelOptions]="{standalone: true}"></ng-selectize>  -->                                                         
+                                <!-- <app-options></app-options> -->
+                                <select2  name="srch"  [options]="exampleData" [(ngModel)]="optionSelected" (onSelect)="onSelect($event)"></select2>    
+                                <input type="text" name="ser" [(ngModel)]="optionSelected2" style="display:none">
+                                <!-- <select class="js-example-basic-single" name="state">
+                                    <option value="AL">Alabama</option>
+                                     
+                                    <option value="WY">Wyoming</option>
+                                  </select> -->
+                                  	
+                              <!-- </ng-select2> -->
+                            </div>
+                                   
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                <button class="btn" (click)="onSearch()">Search</button>
+                            </div>
+                        </div>  
+                    </div>
+                
+                    <div class="modal-footer">
+                        <button type="submit" class="btn" (click)="saveCustomer();modalRef4.hide()">Save</button>
+                    </div>
+                </div>
+                </form>
+</ng-template>
