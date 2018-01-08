@@ -17,7 +17,7 @@
                     <div id="collapseOne-{{idx}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body">
                           
-                            <h4 class="col-sm-6 text-left">
+                            <h4 class="col-sm-6 col-md-6 col-xs-6 text-left">
                                 Food Item
                             </h4>
                                   
@@ -25,13 +25,13 @@
     
                               
                                     
-                                          <h4 class="col-sm-2 text-left">
+                                          <h4 class="col-sm-2 col-xs-2 col-md-2 text-left">
                                               Quarter
                                           </h4>
-                                                <h4 class="col-sm-2 text-left">
+                                                <h4 class="col-sm-2 col-xs-2 col-md-2 text-left">
                                                     Half
                                                 </h4>
-                                                      <h4 class="col-sm-2 text-left">
+                                                      <h4 class="col-sm-2 col-xs-2 col-md-2 text-left">
                                                          Full
                                                       </h4>     
                                                       <hr/>
@@ -41,7 +41,7 @@
                           <div class="row" (click)="openModal(template,item)">
                            
                         
-                              <div class="col-sm-6 text-left">
+                              <div class="col-sm-6 col-md-6 col-xs-6 text-left">
                             {{item.title}}
                               </div>
                               
@@ -49,13 +49,13 @@
 
                           
                                 
-                                      <div class="col-sm-2 text-left">
+                                      <div class="col-sm-2 col-xs-2 col-md-2 text-left">
                                           {{item.quarter}}
                                             </div>
-                                            <div class="col-sm-2 text-left">
+                                            <div class="col-sm-2 col-xs-2 col-md-2 text-left">
                                                 {{item.half}}
                                                   </div>
-                                                  <div class="col-sm-2 text-left">
+                                                  <div class="col-sm-2 col-xs-2 col-md-2 text-left">
                                                       {{item.full}}
                                                         </div>     
                                 
@@ -72,38 +72,38 @@
             </div><!-- panel-group -->
             
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-xs-6 col-md-6">
               Item
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-md-2 col-xs-2">
                  Unit Cost
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-md-2 col-xs-2">
                     Qty
                   </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-2 col-md-2 col-xs-2">
                       Item Cost
                     </div>
             </div>
             <ng-container *ngFor="let item of billingItems">
               <ng-container *ngIf="item !== undefined && item !== null">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6  col-xs-6 col-md-6">
               {{item.Item}}
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-md-2 col-xs-2">
                  {{item.Unit_Cost}}
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-md-2 col-xs-2">
                     {{item.Qty}}
                   </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-2 col-md-2 col-xs-2">
                      {{item.Cost}}
                     </div>
             </div>
               </ng-container>
             </ng-container>
-            <div class="col-sm-12 text-right">
+            <div class="col-sm-12 col-md-12 col-xs-12 text-right">
               Total Cost:{{totalAmt}}
             </div>
             
@@ -122,35 +122,35 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-md-6 col-xs-6">
                   Item
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 col-md-2 col-xs-2">
                       Quarter
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-2 col-md-2 col-xs-2">
                         Half
                       </div>
-                      <div class="col-sm-2">
+                      <div class="col-sm-2 col-md-2 col-xs-2">
                           Full
                         </div>
                 </div>
 
               <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 col-md-6 col-xs-6">
              {{shownData.title}}
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-md-2 col-xs-2">
                   <ng-container *ngIf="shownData.quarter!==undefined && shownData.quarter!==''">
                    <input type="radio" name="radio-group;qty=0" (change)="billedAmt=0" [(ngModel)]="radioData" [value]="shownData.quarter"> <label>{{shownData.quarter}}</label>
                   </ng-container>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-md-2 col-xs-2">
                     <ng-container *ngIf="shownData.half!==undefined && shownData.half!==''">
                         <input type="radio" name="radio-group" (change)="billedAmt=0;qty=0" [(ngModel)]="radioData" [value]="shownData.half"> <label>{{shownData.half}}</label>
                        </ng-container>
                   </div>
-                  <div class="col-sm-2">
+                  <div class="col-sm-2 col-md-2 col-xs-2">
                       <ng-container *ngIf="shownData.full!==undefined && shownData.full!==''">
                           <input type="radio" name="radio-group" (change)="billedAmt=0;qty=0" [(ngModel)]="radioData" [value]="shownData.full"> <label>{{shownData.full}}</label>
                          </ng-container>
@@ -159,24 +159,24 @@
               
             </div>
             <div class="row">
-              <div class="col-sm-5">
+              <div class="col-sm-5 col-md-2 col-xs-2">
               Quantity: 
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-2 col-md-2 col-xs-2">
                   <button class="btn" (click)="inc()">+</button>
                   </div>
                   <span>Quantity: {{qty}}</span>
-                  <div class="col-sm-2">
+                  <div class="col-sm-2 col-md-2 col-xs-2">
                       <button class="btn" (click)="dec()">-</button> 
                       </div>
-                      <div class="col-sm-3">
+                      <div class="col-sm-3 col-md-2 col-xs-2">
                          Item Cost: <input class="form-control" type="text" [(ngModel)]="billedAmt" [value]="finalAmt">
                           </div>
             </div>
           
             </div>
             <div class="modal-footer">
-              <div class="col-sm-12">
+              <div class="col-sm-12 col-md-12 col-xs-12">
                 <button (click)="pushToArray(shownData.title,radioData,billedAmt);modalRef.hide()">Add Item</button>
               </div>
               <!-- <div *ngIf="billingItems.length !== 0">
@@ -198,31 +198,31 @@
               </div>
               <div class="modal-body">
                   <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-6 col-md-6 col-xs-6">
                     Item
                       </div>
-                      <div class="col-sm-2">
+                      <div class="col-sm-2 col-md-2 col-xs-2">
                        Unit Cost
                       </div>
-                      <div class="col-sm-2">
+                      <div class="col-sm-2 col-md-2 col-xs-2">
                           Qty
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-2 col-md-2 col-xs-2">
                             Item Cost
                           </div>
                   </div>
                   <ng-container *ngFor="let item of billingItems">
                   <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-6 col-md-6 col-xs-6">
                     {{item.Item}}
                       </div>
-                      <div class="col-sm-2">
+                      <div class="col-sm-2 col-md-2 col-xs-2">
                        {{item.Unit_Cost}}
                       </div>
-                      <div class="col-sm-2">
+                      <div class="col-sm-2 col-md-2 col-xs-2">
                           {{item.Qty}}
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-2 col-md-2 col-xs-2">
                            {{item.Cost}}
                           </div>
                   </div>
