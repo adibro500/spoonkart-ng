@@ -21,6 +21,6 @@ script:
 - npm install -g angular-cli
 - npm install
 - npm i -g angular-cli-ghpages
-- ng build --env=prod --aot --base-href "https://adibro500.github.io/spoonkart-ng/"
-- ngh --repo=https://GHToken_1@github.com/adibro500/spoonkart-ng.git --no-silent
+- ng build --env=prod --base-href "https://adibro500.github.io/spoonkart-ng/"
+- ngh --repo=https://GHToken@github.com/adibro500/spoonkart-ng.git --name="adibro500" --email=ammanabrolu.aditya@gmail.com --no-silent
 
