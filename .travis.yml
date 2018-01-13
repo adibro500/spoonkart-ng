@@ -22,7 +22,7 @@ script:
 - npm install
 - npm i -g angular-cli-ghpages
 - npm install travis-encrypt -g
-- travis-encrypt -r adibro/spoonkart-ng GHToken=e4eef28a2749bb7aa7528de59963104c9d7c70c0
+- travis-encrypt -r adibro/spoonkart-ng GHToken=[e4eef28a2749bb7aa7528de59963104c9d7c70c0]
 - ng build --env=prod --aot --base-href "https://adibro500.github.io/spoonkart-ng/"
-- ngh --repo=https://GHToken@github.com/adibro500/spoonkart-ng.git --no-silent
+- ngh --no-silent
 
