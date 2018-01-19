@@ -31,6 +31,7 @@
     "@types/underscore": "^1.8.6",
     "angular-select2-component": "^1.0.6",
     "angular-tabs-component": "^1.0.6",
+    "angular2-csv": "^0.2.5",
     "angular2-materialize": "^15.1.10",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",

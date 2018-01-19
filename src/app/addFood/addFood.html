@@ -142,17 +142,17 @@
                 </div>
                 <div class="col-sm-2 col-md-2 col-xs-2">
                   <ng-container *ngIf="shownData.quarter!==undefined && shownData.quarter!==''">
-                   <input type="radio" name="radio-group;qty=0" (change)="billedAmt=0" [(ngModel)]="radioData" [value]="shownData.quarter"> <label>{{shownData.quarter}}</label>
+                   <input type="radio" name="radio-group;qty=0" (change)="billedAmt=radioData" [(ngModel)]="radioData" [value]="shownData.quarter"> <label>{{shownData.quarter}}</label>
                   </ng-container>
                 </div>
                 <div class="col-sm-2 col-md-2 col-xs-2">
                     <ng-container *ngIf="shownData.half!==undefined && shownData.half!==''">
-                        <input type="radio" name="radio-group" (change)="billedAmt=0;qty=0" [(ngModel)]="radioData" [value]="shownData.half"> <label>{{shownData.half}}</label>
+                        <input type="radio" name="radio-group" (change)="billedAmt=radioData" [(ngModel)]="radioData" [value]="shownData.half"> <label>{{shownData.half}}</label>
                        </ng-container>
                   </div>
                   <div class="col-sm-2 col-md-2 col-xs-2">
                       <ng-container *ngIf="shownData.full!==undefined && shownData.full!==''">
-                          <input type="radio" name="radio-group" (change)="billedAmt=0;qty=0" [(ngModel)]="radioData" [value]="shownData.full"> <label>{{shownData.full}}</label>
+                          <input type="radio" name="radio-group" (change)="billedAmt=radioData" [(ngModel)]="radioData" [value]="shownData.full"> <label>{{shownData.full}}</label>
                          </ng-container>
                     </div>
                    
@@ -256,7 +256,25 @@
                 
                 <div class="modal-body">
                     <div class="container-fluid">
-                        
+                        <div class="row col-md-12 col-sm-12 col-xs-12 text-center row_wrapper">
+                            <div class="col-md-10 col-sm-10 col-xs-10">
+                                    <!-- <ng-selectize [options]="currentOptions" [(ngModel)]="value" [config]="currentOptionsConfig" [ngModelOptions]="{standalone: true}"></ng-selectize>  -->                                                         
+                                <!-- <app-options></app-options> -->
+                                <select2  name="srch"  [options]="exampleData" [(ngModel)]="optionSelected" (onSelect)="onSelect($event)"></select2>    
+                                <input type="text" name="ser" [(ngModel)]="optionSelected2" style="display:none">
+                                <!-- <select class="js-example-basic-single" name="state">
+                                    <option value="AL">Alabama</option>
+                                     
+                                    <option value="WY">Wyoming</option>
+                                  </select> -->
+                                  	
+                              <!-- </ng-select2> -->
+                            </div>
+                                   
+                                    <div class="col-md-1 col-sm-1 col-xs-1">
+                <button class="btn" (click)="onSearch()">Search</button>
+                            </div>
+                        </div>   
                        <br/>
                        <br/>
                 
@@ -338,25 +356,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row col-md-12 col-sm-12 col-xs-12 text-center row_wrapper">
-                            <div class="col-md-10 col-sm-10 col-xs-10">
-                                    <!-- <ng-selectize [options]="currentOptions" [(ngModel)]="value" [config]="currentOptionsConfig" [ngModelOptions]="{standalone: true}"></ng-selectize>  -->                                                         
-                                <!-- <app-options></app-options> -->
-                                <select2  name="srch"  [options]="exampleData" [(ngModel)]="optionSelected" (onSelect)="onSelect($event)"></select2>    
-                                <input type="text" name="ser" [(ngModel)]="optionSelected2" style="display:none">
-                                <!-- <select class="js-example-basic-single" name="state">
-                                    <option value="AL">Alabama</option>
-                                     
-                                    <option value="WY">Wyoming</option>
-                                  </select> -->
-                                  	
-                              <!-- </ng-select2> -->
-                            </div>
-                                   
-                                    <div class="col-md-1 col-sm-1 col-xs-1">
-                <button class="btn" (click)="onSearch()">Search</button>
-                            </div>
-                        </div>  
+                       
                     </div>
                 
                     <div class="modal-footer">
