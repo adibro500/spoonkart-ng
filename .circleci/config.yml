@@ -13,4 +13,4 @@ jobs:
           key: my-project-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
-      - run: xvfb-run -a ng serve --env=prod --aot -- --single-run --no-progress --browser=ChromeNoSandbox
+      - run: xvfb-run -a npm run build --env=prod --aot
