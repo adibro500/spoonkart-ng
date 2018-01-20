@@ -13,4 +13,4 @@ jobs:
           key: my-project-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - "node_modules"
-      - run: xvfb-run -a npm run build --env=prod --aot
+      - run: xvfb-run -a npm run build
